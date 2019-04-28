@@ -15,7 +15,6 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
-$('#shareSMS').click(shareSMS);
 }
 
 function showFAQ(){
@@ -23,7 +22,7 @@ function showFAQ(){
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
 }
 
-function shareSMS(){
+/*function shareSMS(){
   var number = "+233561549375";
   var message = "Get the app";
 
@@ -49,7 +48,7 @@ function shareSMS(){
 				'Done'
 			);
   });
-}
+}*/
 
 function handleOffline() {
   navigator.notification.alert(
