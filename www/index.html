@@ -244,6 +244,25 @@
 <body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+
+    $('#share_with_contact').click(function(){
+      navigator.contacts.pickContact(function (contact) {
+          // alert(JSON.stringify(contact.phoneNumbers[0].value));
+          var phoneNumber = contact.phoneNumbers[0].value;
+          console.log(contact.phoneNumbers[0].value);
+          //array = 'Best Coach: ' + data[0]['best_coach'] + '\n' + 'Best Striker: ' + data[0]['best_striker'] + '\n' + 'Best Defender: ' + data[0]['best_defender'] + '\n' + 'Best Midf-ielder: ' + data[0]['best_middle'] + '\n'
+          var message = "Checkout Calm Mind on the appStore";
+          window.plugins.socialsharing.shareViaSMS(message, phoneNumber, function(msg) {console.log('ok: ' + msg)}, function(msg) {navigator.notification.alert(
+            msg,
+            function(){},
+            alert("Error"));})
+      }, function (err) {
+          alert('Error: ' + err);
+      });
+    })
+
+    </script>
     <script src="jquery-1.11.1.js"></script>
     <script src="jquery.mobile-1.4.5.js"></script>
 </body>
