@@ -27,7 +27,7 @@ function handleOffline() {
     "Looks like you're now offline",
     function(){},
     "You are offline");
-    navigator.vibrate(3000);
+    navigator.vibrate(1000);
 }
 
 function handleOnline() {
@@ -35,7 +35,7 @@ function handleOnline() {
     "You're back online!",
     function(){},
     "You are online");
-    navigator.vibrate(3000);
+    navigator.vibrate(1000);
 }
 
 function onBatteryLow(status){
@@ -43,6 +43,7 @@ function onBatteryLow(status){
     "Hey, I know you are enjoying the app, but it looks like your Battery is Low",
     function(){},
     "Battery Low");
+    navigator.vibrate(1000);
 }
 
 function onBatteryCritical(status){
@@ -50,6 +51,7 @@ function onBatteryCritical(status){
     "Hey, letting you know one more time, your phone is about to die",
     function(){},
     "Battery Critical");
+    navigator.vibrate(1000);
 }
 
 function pickContact(){
