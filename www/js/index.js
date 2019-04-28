@@ -4,7 +4,6 @@ function onDeviceReady(){
   window.addEventListener("batterylow", onBatteryLow, false);
   window.addEventListener("offline", handleOffline, false);
   window.addEventListener("online", handleOnline, false);
-  alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
@@ -15,7 +14,7 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
-$("#loginButton").click(validateLogin);
+$("#loginButton").click(function(){alert("working")});
 }
 
 function showFAQ(){
