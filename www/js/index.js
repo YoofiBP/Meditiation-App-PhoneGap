@@ -15,11 +15,35 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
+$('#shareSMS').click(ContactPicker);
 }
 
 function showFAQ(){
   url = "https://www.tarabrach.com/faq-for-meditation-2/";
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
+}
+
+function shareSMS(){
+  var number = "+233561549375";
+  var message = "Get the app";
+
+  var msg = {
+    phoneNumber : number,
+    textMessage : message
+  };
+
+
+}
+
+var successCallback = function(result){
+    setTimeout(function(){alert(result.name + " " + result.phoneNumber);},0);
+};
+var failedCallback = function(result){
+    setTimeout(function(){alert(result);},0);
+}
+
+function ContactPicker(){
+    window.plugins.contactNumberPicker.pick(successCallback,failedCallback);
 }
 
 function handleOffline() {
