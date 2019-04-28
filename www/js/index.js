@@ -14,7 +14,7 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
-$("#loginButton").click(function(){alert("working")});
+$("#loginButton").click(validateLogin);
 }
 
 function showFAQ(){
@@ -23,6 +23,7 @@ function showFAQ(){
 }
 
 function validateLogin(){
+  alert("working");
   var loginError = "";
   var password = $("#password").val();
   var email = $("#email").val();
