@@ -133,6 +133,76 @@
 </div><!-- /footer -->
   </div><!-- /page two -->
 
+  <div data-role="page" id="new_entry" data-theme="a">
+
+    <div data-role="header">
+      <h1>Add Journal Entry</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+      <div class="content loginform ui-field-contain">
+        <input id="journal_title" type="text" name="" value="" placeholder="Title">
+        <textarea id="journal_post" name="journal_post" rows="30" cols="80"></textarea>
+        <img id="imageAttachments" />
+        <p>
+          Image Attachments
+        </p>
+        <button type="button" id="add_entry">Add Post</button>
+        <button type="button" id="cameraButton">Open Camera</button>
+        <button type="button" name="button" id="speech_to_text">Speech-To-Text</button>
+        <a href="index.html/#journal"><button data-role="button" type="button" name="button">Back</button></a>
+      </div>
+    </div>
+
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+      <div data-role="footer" data-id="foo1" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#audios">Audios</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#journal" class="ui-btn-active ui-state-persist">Journal</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </div><!-- /navbar -->
+    </div><!-- /footer -->
+  </div><!-- /footer -->
+  </div><!-- /page two -->
+
+  <div data-role="page" id="settings" data-theme="a">
+
+    <div data-role="header">
+      <h1>Change Settings</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+      <div class="content loginform ui-field-contain">
+        <img id="settingImage" src="img/img_avatar2.png" alt="Profile Picture"/>
+        <h2 id="settingsUsername"></h2>
+        <a href="#about"><button type="button" name="button">About Calm Mind</button></a>
+        <button>FAQs</button>
+        <button id="share_with_contact" type="button">Share with Contact via SMS</button>
+        <button id="share_with_media" type="button">Share on Social media</button>
+        <button id="weather" type="button" name="button">What's the weather like today</button>
+        <button id="geolocation" type="button">Where am I right now</button>
+        <button id="signOut" type="button">Sign Out</button>
+      </div>
+    </div>
+
+    <div data-role="footer" data-id="foo1" data-position="fixed">
+      <div data-role="footer" data-id="foo1" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#audios">Audios</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#settings" class="ui-btn-active ui-state-persist">Settings</a></li>
+      </ul>
+    </div><!-- /navbar -->
+    </div><!-- /footer -->
+  </div><!-- /footer -->
+  </div>
+
+
 <body>
     <script type="text/javascript" src="cordova.js"></script>
     <script src="jquery-1.11.1.js"></script>
