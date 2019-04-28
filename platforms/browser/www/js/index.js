@@ -17,8 +17,8 @@ function pickContact(){
       window.plugins.socialsharing.shareViaSMS(message, phoneNumber, function(msg) {console.log('ok: ' + msg)}, function(msg) {navigator.notification.alert(
         msg,
         function(){},
-        "Error");})
+        alert("Error");})
   }, function (err) {
-      console.log('Error: ' + err);
+      alert('Error: ' + err);
   });
 }
