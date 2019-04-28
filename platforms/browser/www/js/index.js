@@ -14,7 +14,7 @@ $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
 $("#loginButton").click(validateLogin);
-//$('#addEntry').click(forumPost);
+$('#addEntry').click(postJournal);
 }
 
 function showFAQ(){
@@ -267,42 +267,14 @@ function onWeatherError(error) {
         'message: ' + error.message + '\n');
 }
 
-function forumPost() {
+function postJournal(){
+  var author = $('#journal_author').val();
+  var value = $('#journal_post').val();
 
-            // On click of the POST button, the post will get added to the forum and posted to the database too !
-
-            var title = $('#journal_title').val();
-            var content = $('#journal_post').val();
-            var author = $('#journal_author').val();
-            var imagesrc = $('#imageAttachments').attr('src');
-            if (author == ''){
-                author = 'Anon'
-            }
-
-            var node = document.createElement("P");
-            var textnode = document.createTextNode(text_post + '              - ' + author );
-
-            if (text_post != '') {
-                node.appendChild(textnode);
-                document.getElementById('post-div').appendChild(node);
-                console.log(text_post + ' ' + author);
-
-                $.ajax({
-                    url     : 'http://cs.ashesi.edu.gh/~joseph.brown-pobee/mobile_app/insert_posts.php',
-                    type: "POST",
-                    data: {
-                        submit : 'submit',
-                        post_title: title,
-                        post_content: content,
-                        post_author: author,
-                        post_image: imagesrc
-                      },
-                    dataType: 'json',
-
-                    success: function (data) {
-                      window.href.location = "#journal";
-                    }
-                });
-            }
-
-        }
+  if(author == "" || value ==""){
+    alert("Fill Everything");
+  }else{
+    var post = value + " by " + author;
+    localStorage.setItem("title", post);
+  }
+}
