@@ -2,6 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
   window.addEventListener("batterylow", onBatteryLow, false);
+  window.addEventListener("offline", handleOffline, false);
   alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
@@ -11,6 +12,13 @@ $("#cameraButton").click(takePicture);
 $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
+}
+
+function handleOffline() {
+  navigator.notification.alert(
+    "Looks like you're now offline",
+    function(){},
+    "You are offline");
 }
 
 function onBatteryLow(status){
