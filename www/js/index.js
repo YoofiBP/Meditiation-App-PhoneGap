@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
+  window.addEventListener("batterystatus", onBatteryStatus, false);
   alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
@@ -12,6 +13,9 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 }
 
+function onBatteryStatus(status){
+  alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+}
 function pickContact(){
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
