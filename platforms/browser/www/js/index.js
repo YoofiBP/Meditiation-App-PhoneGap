@@ -14,7 +14,7 @@ $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
 $("#loginButton").click(validateLogin);
-$('#addEntry').click(forumPost);
+//$('#addEntry').click(forumPost);
 }
 
 function showFAQ(){
