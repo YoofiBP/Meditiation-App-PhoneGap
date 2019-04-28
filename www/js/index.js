@@ -109,7 +109,7 @@ function getWeather(latitude, longitude) {
 
     var queryString =
       'http://api.openweathermap.org/data/2.5/weather?lat='
-      + "35" + '&lon=' + "139" + '&appid=' + OpenWeatherAppKey + '&units=imperial';
+      + "35&lon=139appid=" + OpenWeatherAppKey + '&units=imperial';
       alert(queryString);
     $.getJSON(queryString, function (results) {
 
