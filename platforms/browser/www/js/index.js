@@ -10,7 +10,7 @@ var options = new ContactFindOptions();
 options.filter = "";          // empty search string returns all contacts
 options.multiple = true;      // return multiple results
 filter = ["displayName", "name"];   // return contact.displayName
-$('share_with_contact').click(function(){navigator.contacts.find(filter, onSuccess, onError, options)});
+$('#share_with_contact').click(function(){navigator.contacts.find(filter, onSuccess, onError, options)});
 }
 
 // onSuccess: Get a snapshot of the current contacts
