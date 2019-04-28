@@ -98,6 +98,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
+    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
