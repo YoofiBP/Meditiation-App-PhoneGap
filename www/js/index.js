@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
+  alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
