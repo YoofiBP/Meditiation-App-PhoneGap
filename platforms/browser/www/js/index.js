@@ -9,6 +9,7 @@ $('#share_with_contact').click(pickContact);
 }
 
 function pickContact(){
+  alert('working');
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
       var phoneNumber = contact.phoneNumbers[0].value;
