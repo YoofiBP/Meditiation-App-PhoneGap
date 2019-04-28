@@ -3,6 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady(){
   window.addEventListener("batterylow", onBatteryLow, false);
   window.addEventListener("offline", handleOffline, false);
+  window.addEventListener("online", handleOnline, false);
   alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
@@ -25,6 +26,13 @@ function handleOffline() {
     "Looks like you're now offline",
     function(){},
     "You are offline");
+}
+
+function handleOnline() {
+  navigator.notification.alert(
+    "You're back online!",
+    function(){},
+    "You are online");
 }
 
 function onBatteryLow(status){
