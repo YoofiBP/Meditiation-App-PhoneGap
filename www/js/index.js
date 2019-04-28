@@ -5,7 +5,7 @@ function onDeviceReady(){
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
-$('#share_with_contact').click(pickContact);
+$('#share_with_contact').click(function(){alert('Button works')});
 }
 
 function pickContact(){
