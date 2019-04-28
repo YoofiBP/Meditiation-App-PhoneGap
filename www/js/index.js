@@ -14,6 +14,7 @@ $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
+$('#showPicture').click(showPicture);
 }
 
 function showFAQ(){
