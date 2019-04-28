@@ -15,11 +15,32 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
+$("#loginButton").click(validateLogin);
 }
 
 function showFAQ(){
   url = "https://www.tarabrach.com/faq-for-meditation-2/";
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
+}
+
+function validateLogin(){
+  var loginError = "";
+  var password = $("#password").val();
+  var email = $("#email").val();
+  loginError += validatePassword(password);
+  loginError += validateEmail(email);
+  if(loginError != ""){
+    console.log(loginError);
+    navigator.notification.alert(loginError, function(){}, "Invalid Login Details");
+  }else{
+    firebase.auth().signInWithEmailAndPassword(email,password).then(function(){window.location.href = '#settings'}).catch(function(error){
+      alert("You dont exist");
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // console.log(errorCode);
+      // console.log(errorMessage);
+    });
+  }
 }
 
 /*function shareSMS(){
