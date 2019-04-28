@@ -15,7 +15,7 @@ $('#weather').click(getWeatherLocation);
 
 function onBatteryStatus(status){
   navigator.notification.alert(
-    "Hey your Battey is Low",
+    "Hey, I know you are enjoying the app, but it looks like your Battery is Low",
     function(){},
     "Battery Low");
 }
