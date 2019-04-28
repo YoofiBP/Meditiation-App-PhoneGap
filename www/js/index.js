@@ -1,7 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
-  window.addEventListener("batterystatus", onBatteryStatus, false);
+  window.addEventListener("batterylow", onBatteryLow, false);
   alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
@@ -13,12 +13,20 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 }
 
-function onBatteryStatus(status){
+function onBatteryLow(status){
   navigator.notification.alert(
     "Hey, I know you are enjoying the app, but it looks like your Battery is Low",
     function(){},
     "Battery Low");
 }
+
+function onBatteryCritical(status){
+  navigator.notification.alert(
+    "Hey, letting you know one more time, your phone is about to die",
+    function(){},
+    "Battery Critical");
+}
+
 function pickContact(){
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
