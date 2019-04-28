@@ -5,28 +5,11 @@ function onDeviceReady(){
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
-//$('#share_with_contact').click(pickContact);
-var options = new ContactFindOptions();
-options.filter = "";          // empty search string returns all contacts
-options.multiple = true;      // return multiple results
-filter = ["displayName", "name"];   // return contact.displayName
-$('#share_with_contact').click(function(){navigator.contacts.find(filter, onSuccess, onError, options)});
+$('#share_with_contact').click(pickContact);
 }
 
-// onSuccess: Get a snapshot of the current contacts
-
-function onSuccess(contacts) {
-       for (var i = 0; i < contacts.length; i++) {
-            console.log("Display Name = " + contacts[i].displayName);
-        }
-}
-
-// onError: Failed to get the contacts
-
-function onError(contactError) {
-     alert('onError!');
-}
-/*function pickContact(){
+function pickContact(){
+  alert('working');
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
       var phoneNumber = contact.phoneNumbers[0].value;
@@ -40,4 +23,4 @@ function onError(contactError) {
   }, function (err) {
       alert('Error: ' + err);
   });
-}*/
+}
