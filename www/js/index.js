@@ -15,7 +15,7 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
-$('#shareSMS').click(ContactPicker);
+$('#shareSMS').click(shareSMS);
 }
 
 function showFAQ(){
@@ -32,29 +32,23 @@ function shareSMS(){
     textMessage : message
   };
 
-
-}
-
-var successCallback = function(result){
-    setTimeout(function(){alert(result.name + " " + result.phoneNumber);},0);
-};
-var failedCallback = function(result){
-    setTimeout(function(){alert(result);},0);
-}
-
-function ContactPicker(){
-  navigator.contactsPhoneNumbers.list(function(contacts) {
-      console.log(contacts.length + ' contacts found');
-      for(var i = 0; i < contacts.length; i++) {
-         console.log(contacts[i].id + " - " + contacts[i].displayName);
-         for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-            var phone = contacts[i].phoneNumbers[j];
-            console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
-         }
-      }
-   }, function(error) {
-      console.error(error);
-   });
+  sms.sendMessage(msg, function(message){
+    alert("Success");
+    navigator.notification.alert(
+			    'Message to ' + number + ' has been sent.',
+			    null,
+			    'Message Sent',
+			    'Done'
+			);
+  },function(error){
+    console.log("error: " + error.code + " " + error.message);
+			navigator.notification.alert(
+				'Sorry, message not sent: ' + error.message,
+				null,
+				'Error',
+				'Done'
+			);
+  });
 }
 
 function handleOffline() {
