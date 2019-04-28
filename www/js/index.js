@@ -81,9 +81,14 @@ function pickPicture(){
   encodingType: Camera.EncodingType.JPEG
 });}
 
+function showPicture(){
+  $('#storedPictures').attr('src',localStorage.getItem('key'));
+}
+
 function onCameraSuccess(imageURI){
   $('#imageAttachments').attr('src',imageURI);
   console.log($('#imageAttachments').attr('src'));
+  localStorage.setItem("key", imageURI);
 }
 
 function onCameraFail(message){
