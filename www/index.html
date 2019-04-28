@@ -9,6 +9,9 @@
   <script type="text/javascript" src="phonegap.js"></script>
 
   <title>Splash Screen</title>
+  <script>
+
+  </script>
 </head>
 
     <div data-role="page" id="audios" data-theme="a">
@@ -21,7 +24,6 @@
     <div class="content loginform ui-field-contain">
       <iframe width="100%" height="200" scrolling="yes" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/608117772%3Fsecret_token%3Ds-MWTJc&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
       <iframe width="100%" height="200" scrolling="yes" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/608117772%3Fsecret_token%3Ds-MWTJc&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-      <a href="#videos">Go to Videos</a><!--REMOVE THIS -->
     </div>
   </div>
 
@@ -54,6 +56,14 @@
     <option value="Intimacy">Intimacy</option>
 </select>
     <div class="content loginform ui-field-contain videos">
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/5I_gj-eMefU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Confidence</p>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/soZwJQTFpJk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Confidence</p>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/wpNiwWfgwNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Self Acceptance</p>
+      <iframe width="100%" height="215" src="https://www.youtube.com/embed/_kQ1lh2tC2w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Energy</p>
     </div>
   </div>
 
@@ -78,7 +88,7 @@
     <div role="main" class="ui-content">
       <div class="content loginform ui-field-contain postinfo">
         <div class="entries">
-
+<h3 id="journal_info"></h3>
         </div>
         <a href="#new_entry"><button data-role="button" type="button" name="button">New Post</button></a>
       </div>
@@ -97,7 +107,6 @@
   </div><!-- /page two -->
 
   <div data-role="page" id="new_entry" data-theme="a">
-    <h3 id="journal_info"></h3>
     <div data-role="header">
       <h1>Add Journal Entry</h1>
     </div><!-- /header -->
@@ -196,9 +205,8 @@
   firebase.initializeApp(config);
   </script>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script src="jquery-1.11.1.js"></script>
     <script src="jquery.mobile-1.4.5.js"></script>
-      <script type="text/javascript" src="/js/databasehandling.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

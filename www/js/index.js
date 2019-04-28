@@ -277,5 +277,6 @@ function postJournal(){
   }else{
     var post = value + " by " + author;
     localStorage.setItem("title", post);
+    window.href.location = "#journal";
   }
 }

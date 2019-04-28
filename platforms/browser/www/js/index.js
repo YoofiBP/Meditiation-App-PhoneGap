@@ -15,6 +15,7 @@ $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
 $("#loginButton").click(validateLogin);
 $('#addEntry').click(postJournal);
+$('#journal_info').text(localStorage.getItem('title'));
 }
 
 function showFAQ(){
@@ -276,5 +277,6 @@ function postJournal(){
   }else{
     var post = value + " by " + author;
     localStorage.setItem("title", post);
+    window.href.location = "#journal";
   }
 }
