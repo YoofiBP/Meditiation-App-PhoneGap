@@ -151,7 +151,6 @@
         </p>
         <button type="button" id="add_entry">Add Post</button>
         <button type="button" id="cameraButton">Open Camera</button>
-        <button type="button" name="button" id="speech_to_text">Speech-To-Text</button>
         <a href="index.html/#journal"><button data-role="button" type="button" name="button">Back</button></a>
       </div>
     </div>
@@ -181,10 +180,7 @@
         <img id="settingImage" src="img/img_avatar2.png" alt="Profile Picture"/>
         <h2 id="settingsUsername"></h2>
         <a href="#about"><button type="button" name="button">About Calm Mind</button></a>
-        <button>FAQs</button>
-        <button id="share_with_contact" type="button">Share with Contact via SMS</button>
-        <button id="share_with_media" type="button">Share on Social media</button>
-        <button id="weather" type="button" name="button">What's the weather like today</button>
+        <button type="button" id="FAQS">FAQs</button>
         <button id="geolocation" type="button">Where am I right now</button>
         <button id="signOut" type="button">Sign Out</button>
       </div>
@@ -221,34 +217,14 @@
     </div>
   </div>
 
-  <div data-role="page" id="weather" data-theme="a">
-
-    <div data-role="header">
-      <h1>Weather today</h1>
-    </div><!-- /header -->
-
-    <div role="main" class="ui-content">
-      <div class="content loginform ui-field-contain about">
-        <h1>Todays Weather Details</h1>
-        <p id="description"></p>
-        <p id="temp"></p>
-        <p id="wind"></p>
-        <p id="humidity"></p>
-        <p id="visibility"></p>
-        <a href="#settings"><button>Back to Settings</button></a>
-      </div>
-    </div>
-  </div>
-
-
 <body>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-
-  alert("Working here");
-
-    </script>
     <script src="jquery-1.11.1.js"></script>
     <script src="jquery.mobile-1.4.5.js"></script>
 </body>
