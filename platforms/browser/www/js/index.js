@@ -1,4 +1,13 @@
 document.addEventListener("deviceready", onDeviceReady, false);
+var config = {
+  apiKey: "AIzaSyAlEYGuyWL-nZG8k7AwG9tcZ7SNnFDcokk",
+  authDomain: "calmmind-c225f.firebaseapp.com",
+  databaseURL: "https://calmmind-c225f.firebaseio.com",
+  projectId: "calmmind-c225f",
+  storageBucket: "calmmind-c225f.appspot.com",
+  messagingSenderId: "690720280396"
+};
+firebase.initializeApp(config);
 
 function onDeviceReady(){
   window.addEventListener("batterylow", onBatteryLow, false);
@@ -13,73 +22,15 @@ $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
-$("#signUpButton").click(signUp);
-$('#usernameButton').click(setUsername);
-$("#loginButton").click(validateLogin);
-$("#googleButton").click(signIn);
-$("#signOut").click(signOut);
 $('#showPicture').click(showPicture);
 $("#loginButton").click(validateLogin);
+$('#addEntry').click(forumPost);
 }
 
 function showFAQ(){
   url = "https://www.tarabrach.com/faq-for-meditation-2/";
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
 }
-
-function signIn(){
-var provider = new firebase.auth.GoogleAuthProvider();
-
-firebase.auth().signInWithPopup(provider).then(function(result){
-  var token = result.credential.accessToken;
-  var user = result.user;
-  window.location.href = '#settings';
-}).catch(function(error){
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  var email = error.email;
-  var credential = error.credential;
-});
-}
-
-function signOut(){
-  firebase.auth().signOut().then(function(){
-    console.log("Signed Out First");
-  }).catch(function(error){
-    console.log("Failed");
-  });
-}
-
-function isUserSignIn(){
-  return !!firebase.auth().currentUser;
-}
-
-function validateEmail(email){
-//  var email = $("#email").val();
-  var emailError = "";
-  if(email.length == 0 || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-    emailError+="Please enter a valid email\n";
-  }
-    return emailError;
-}
-
-var constraints = {
-  password: {
-    presence: true,
-    length: {
-      minimum: 6,
-      message: "must be at least 6 characters"
-    }
-  }
-}
-
-function validateSignUpPassword(){
-  var user_password = $("#password").val();
-  var result = validate({password: user_password}, constraints)
-  console.log(result);
-  alert(result.password);
-}
-
 
 function validatePassword(password){
   //var password = $("#password").val();
@@ -93,6 +44,15 @@ function validatePassword(password){
     return passwordError;
 }
 
+function validateEmail(email){
+//  var email = $("#email").val();
+  var emailError = "";
+  if(email.length == 0 || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+    emailError+="Please enter a valid email\n";
+  }
+    return emailError;
+}
+
 function validateLogin(){
   var loginError = "";
   var password = $("#password").val();
@@ -104,6 +64,7 @@ function validateLogin(){
     navigator.notification.alert(loginError, function(){}, "Invalid Login Details");
   }else{
     firebase.auth().signInWithEmailAndPassword(email,password).then(function(){window.location.href = '#settings'}).catch(function(error){
+      alert("You dont exist");
       var errorCode = error.code;
       var errorMessage = error.message;
       // console.log(errorCode);
@@ -111,48 +72,6 @@ function validateLogin(){
     });
   }
 }
-
-function signUp(){
-  var signUpError = "";
-  var displayname = $('#first_name').val() + " " + $('#last_name').val();
-  var email = $('#sign_email').val();
-  signUpError+=validateEmail(email);
-  var password = $('#sign_password').val();
-  signUpError+=validatePassword(password);
-  var confirmpassword = $('#confirm_password').val();
-  if(password != confirmpassword){
-    signUpError += "Passwords dont match";
-  }
-  if(signUpError != ""){
-    navigator.notification.alert(signUpError, function(){}, "Sign Up Error");
-  }else{
-  firebase.auth().createUserWithEmailAndPassword(email, password).then(pageTwo).catch(function(error){
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode);
-    console.log(errorMessage);
-  })
-}}
-
- function setUsername(){
-   var user = firebase.auth().currentUser;
-   var name = $('#username').val();
-   user.updateProfile({
-     displayName : name
-   }).then(function(){
-     window.location.hash = '#settings';
-     window.location.reload(true);
-   }).catch(function(error){});
- }
-
- /*function setProfilePicture(){
-   var user = firebase.auth().currentUser;
-   var name = $('#imageAttachments').attr('src');
-   user.updateProfile({
-     photoURL : name
-   }).then(pageThree).catch(function(error){});
- }*/
-
 
 /*function shareSMS(){
   var number = "+233561549375";
@@ -355,3 +274,43 @@ function onWeatherError(error) {
     console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
 }
+
+function forumPost() {
+
+            // On click of the POST button, the post will get added to the forum and posted to the database too !
+
+            var title = $('#journal_title').val();
+            var content = $('#journal_post').val();
+            var author = $('#journal_author').val();
+            var imagesrc = $('#imageAttachments').attr('src');
+            if (author == ''){
+                author = 'Anon'
+            }
+
+            var node = document.createElement("P");
+            var textnode = document.createTextNode(text_post + '              - ' + author );
+
+            if (text_post != '') {
+                node.appendChild(textnode);
+                document.getElementById('post-div').appendChild(node);
+                console.log(text_post + ' ' + author);
+
+                $.ajax({
+                    url     : 'http://cs.ashesi.edu.gh/~joseph.brown-pobee/mobile_app/insert_posts.php',
+                    type: "POST",
+                    data: {
+                        submit : 'submit',
+                        post_title: title,
+                        post_content: content,
+                        post_author: author,
+                        post_image: imagesrc
+                      },
+                    dataType: 'json',
+
+                    success: function (data) {
+                      window.href.location = "#journal";
+                    }
+                });
+            }
+
+        }
