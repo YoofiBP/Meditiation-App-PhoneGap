@@ -137,7 +137,7 @@ function getWeather(latitude, longitude) {
             });
         }
     }).fail(function () {
-        console.log("error getting location");
+        alert("error getting location");
     });
     window.location.href = '#weather';
 }
