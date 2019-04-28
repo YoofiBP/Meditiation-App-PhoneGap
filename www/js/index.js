@@ -27,6 +27,7 @@ function handleOffline() {
     "Looks like you're now offline",
     function(){},
     "You are offline");
+    navigator.vibrate(3000);
 }
 
 function handleOnline() {
@@ -34,6 +35,7 @@ function handleOnline() {
     "You're back online!",
     function(){},
     "You are online");
+    navigator.vibrate(3000);
 }
 
 function onBatteryLow(status){
