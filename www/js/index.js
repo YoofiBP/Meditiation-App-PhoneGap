@@ -14,7 +14,10 @@ $('#weather').click(getWeatherLocation);
 }
 
 function onBatteryStatus(status){
-  alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+  navigator.notification.alert(
+    "Hey your Battey is Low",
+    function(){},
+    "Battery Low");
 }
 function pickContact(){
   navigator.contacts.pickContact(function (contact) {
