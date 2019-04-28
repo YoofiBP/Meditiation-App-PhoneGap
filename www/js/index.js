@@ -22,8 +22,28 @@ function showFAQ(){
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
 }
 
+function validatePassword(password){
+  //var password = $("#password").val();
+  var passwordError = "";
+  if(password.length == 0){
+    passwordError+="Please enter a password\n";
+  }
+  else if(password.length < 6){
+    passwordError+="Password too short\n";
+  }
+    return passwordError;
+}
+
+function validateEmail(email){
+//  var email = $("#email").val();
+  var emailError = "";
+  if(email.length == 0 || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+    emailError+="Please enter a valid email\n";
+  }
+    return emailError;
+}
+
 function validateLogin(){
-  alert("working");
   var loginError = "";
   var password = $("#password").val();
   var email = $("#email").val();
