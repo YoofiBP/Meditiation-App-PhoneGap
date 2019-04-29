@@ -107,13 +107,19 @@ function signUp(){
  function setUsername(){
    var user = firebase.auth().currentUser;
    var name = $('#username').val();
+   if(name == ""){
+     navigator.notification.alert(
+       "Please enter a name",
+       function(){},
+       "Hold Up");
+   }else{
    user.updateProfile({
      displayName : name
    }).then(function(){
      window.location.hash = '#settings';
      window.location.reload(true);
    }).catch(function(error){});
- }
+ }}
 
  function pageTwo(){
   $('#sign_email').hide();
