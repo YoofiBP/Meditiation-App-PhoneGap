@@ -75,10 +75,9 @@ function validateLogin(){
     navigator.notification.alert(loginError, function(){}, "Invalid Login Details");
   }else{
     firebase.auth().signInWithEmailAndPassword(email,password).then(function(){window.location.href = '#settings'}).catch(function(error){
+      alert("You don't exist");
       var errorCode = error.code;
       var errorMessage = error.message;
-      // console.log(errorCode);
-      // console.log(errorMessage);
     });
   }
 }
@@ -123,9 +122,3 @@ function signUp(){
      photoURL : name
    }).then(pageThree).catch(function(error){});
  }*/
-
-$("#signUpButton").click(signUp);
-$('#usernameButton').click(setUsername);
-$("#loginButton").click(validateLogin);
-$("#googleButton").click(signIn);
-$("#signOut").click(signOut);

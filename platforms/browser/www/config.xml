@@ -8,7 +8,9 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <access origin="*" />
+    <allow-intent href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

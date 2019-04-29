@@ -14,6 +14,31 @@ $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
+$("#signUpButton").click(signUp);
+$('#usernameButton').click(setUsername);
+$("#loginButton").click(validateLogin);
+$("#googleButton").click(signIn);
+$("#signOut").click(signOut);
+
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+    console.log(
+      "name "+ user.displayName +"\n" + "email: " + user.email +"\n" + "photoURL: " + user.photoURL +"\n" + "emailVerified: " + user.emailVerified +"\n" + "ID: " + user.uid +"\n" + "Provider Data: " + user.providerData
+    );
+    $('.entries').empty();
+    $('#settingsUsername').text(user.displayName);
+    db.collection("entries").where("userid", "==", user.uid).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            //$(".entries").append('<img src='+doc.data().picture+'/>');
+            $(".entries").append('<h2>'+doc.data().title+'</h2>');
+            $(".entries").append(doc.data().content + '<br><small>Posted&nbsp'+doc.data().date+'</small><hr>');
+        });
+    })
+  }else{
+    window.location.href = '#login';
+    console.log("Signed Out second");
+  }
+});
 }
 
 function showFAQ(){
