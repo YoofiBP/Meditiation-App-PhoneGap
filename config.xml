@@ -114,4 +114,6 @@
     <feature name="Contacts">
     <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
 </feature>
+<engine name="browser" spec="~5.0.4" />
+<engine name="android" spec="~7.0.4" />
 </widget>
