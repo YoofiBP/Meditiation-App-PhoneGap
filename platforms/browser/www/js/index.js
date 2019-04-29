@@ -8,7 +8,7 @@ function onDeviceReady(){
 $('#usernameButton').hide();
 $('#profileComplete').hide();
 $('#share_with_contact').click(pickContact);
-$("#cameraButton").click(takePicture);
+$("#setProPic").click(takePicture);
 $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
@@ -144,8 +144,8 @@ function showPicture(){
 }
 
 function onCameraSuccess(imageURI){
-  $('#imageAttachments').attr('src',imageURI);
-  console.log($('#imageAttachments').attr('src'));
+  $('#settingImage').attr('src',imageURI);
+  console.log($('#settingImage').attr('src'));
   localStorage.setItem("key", imageURI);
 }
 
