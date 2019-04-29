@@ -1,8 +1,9 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady(){
-  window.addEventListener("batterystatus", onBatteryStatus, false);
-  alert('Working');
+  window.addEventListener("batterylow", onBatteryLow, false);
+  window.addEventListener("offline", handleOffline, false);
+  window.addEventListener("online", handleOnline, false);
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
@@ -11,11 +12,75 @@ $("#cameraButton").click(takePicture);
 $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
+$('#FAQS').click(showFAQ);
+$('#showPicture').click(showPicture);
 }
 
-function onBatteryStatus(status){
-  alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+function showFAQ(){
+  url = "https://www.tarabrach.com/faq-for-meditation-2/";
+  var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
 }
+
+/*function shareSMS(){
+  var number = "+233561549375";
+  var message = "Get the app";
+
+  var msg = {
+    phoneNumber : number,
+    textMessage : message
+  };
+
+  sms.sendMessage(msg, function(message){
+    alert("Success");
+    navigator.notification.alert(
+			    'Message to ' + number + ' has been sent.',
+			    null,
+			    'Message Sent',
+			    'Done'
+			);
+  },function(error){
+    console.log("error: " + error.code + " " + error.message);
+			navigator.notification.alert(
+				'Sorry, message not sent: ' + error.message,
+				null,
+				'Error',
+				'Done'
+			);
+  });
+}*/
+
+function handleOffline() {
+  navigator.notification.alert(
+    "Looks like you're now offline",
+    function(){},
+    "You are offline");
+    navigator.vibrate(1000);
+}
+
+function handleOnline() {
+  navigator.notification.alert(
+    "You're back online!",
+    function(){},
+    "You are online");
+    navigator.vibrate(1000);
+}
+
+function onBatteryLow(status){
+  navigator.notification.alert(
+    "Hey, I know you are enjoying the app, but it looks like your Battery is Low",
+    function(){},
+    "Battery Low");
+    navigator.vibrate(1000);
+}
+
+function onBatteryCritical(status){
+  navigator.notification.alert(
+    "Hey, letting you know one more time, your phone is about to die",
+    function(){},
+    "Battery Critical");
+    navigator.vibrate(1000);
+}
+
 function pickContact(){
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
@@ -48,9 +113,14 @@ function pickPicture(){
   encodingType: Camera.EncodingType.JPEG
 });}
 
+function showPicture(){
+  $('#storedPictures').attr('src',localStorage.getItem('key'));
+}
+
 function onCameraSuccess(imageURI){
   $('#imageAttachments').attr('src',imageURI);
   console.log($('#imageAttachments').attr('src'));
+  localStorage.setItem("key", imageURI);
 }
 
 function onCameraFail(message){

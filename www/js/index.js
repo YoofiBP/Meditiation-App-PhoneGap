@@ -4,7 +4,6 @@ function onDeviceReady(){
   window.addEventListener("batterylow", onBatteryLow, false);
   window.addEventListener("offline", handleOffline, false);
   window.addEventListener("online", handleOnline, false);
-  alert('Working');
   $('#username').hide();
 $('#usernameButton').hide();
 $('#profileComplete').hide();
