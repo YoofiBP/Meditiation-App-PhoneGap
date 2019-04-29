@@ -19,6 +19,7 @@ $('#usernameButton').click(setUsername);
 $("#loginButton").click(validateLogin);
 $("#googleButton").click(signIn);
 $("#signOut").click(signOut);
+//$("#register").click();
 
 firebase.auth().onAuthStateChanged(function(user){
     if(user){

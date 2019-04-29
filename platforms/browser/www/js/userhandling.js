@@ -115,6 +115,15 @@ function signUp(){
    }).catch(function(error){});
  }
 
+ function pageTwo(){
+  $('#sign_email').hide();
+  $('#sign_password').hide();
+  $('#confirm_password').hide();
+  $('#signUpButton').hide();
+  $('#username').show();
+  $('#usernameButton').show();
+}
+
  /*function setProfilePicture(){
    var user = firebase.auth().currentUser;
    var name = $('#imageAttachments').attr('src');
