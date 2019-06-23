@@ -1,69 +1,50 @@
-# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
+## Meditation App built with Web Technologies and PhoneGap
+This project represents an effort to build a Native Android Application using Web Technologies and Phonegap Cordova. 
 
-A PhoneGap Hello World template
+## Motivation
+I had to use PhoneGap to build a web application into a Native Android Application as a requirement for my Mobile App Development Class. I therefore choose to build an app on around something I have an interest in: Mindfulness Meditation. I engage in Mindfulness Meditation because of its immense benefits on my mind and general well being. I sought to create a meditation app that allows me to journal my thoughts and save them on the cloud as well as view audio and video meditations I like. 
 
-## Usage
+## Built With 
+* HTML, CSS, Javascript (jQuery Mobile) - Front-end Design and Client Side Interactions
+* Firebase - For Storage and User Authentication
+* PhoneGap and Cordova - To convert web app into Native Android App and to access hardware functionalities of Android phone
 
-#### PhoneGap CLI
+##App Architecture
 
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
-
-    phonegap create my-app
-
-Create an app using this template specifically:
-
-    phonegap create my-app --template hello-world
-
-To see a list of other available PhoneGap templates:
-
-    phonegap template list
-
-## [config.xml][config-xml]
-
-#### android-minSdkVersion (Android only)
-
-Minimum SDK version supported on the target device. Maximum version is blank by default.
-
-This template sets the minimum to `14`.
-
-    <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
-
-#### Content Security Policy (CSP)
-
-The default CSP is similarly open:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
-
-A good starting point declaration might be:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
-
-For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
-
-Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
+<img src="screenshots/Copy of NLU Interpreter_ Responsible for understanding user input by determining intent and extracting entities (2).png" alt="Architecture">
 
 
-[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
-[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
-[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
-[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
-[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
-[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
-[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
-[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
-[csp-is-awesome]: http://cspisawesome.com
+##Design Walkthrough
+#####Login Page
+<img src="screenshots/Login.png" alt="Login" height="400px">
+
+#####Settings Page
+<img src="screenshots/Settings.png" alt="Settings" height="400px">
+
+#####Video Meditations Page
+<img src="screenshots/Video1.png" alt="Video Meditation 1" height="400px">
+<img src="screenshots/Video2.png" alt="Video Meditation 2" height="400px">
+
+#####Audio Meditations Page
+<img src="screenshots/Audio.png" alt="Audio Meditation" height="400px">
+
+#####Journal Entry
+<img src="screenshots/Journal1.png" alt="Journal 1" height="400px">
+<img src="screenshots/Journal2.png" alt="Journal 2" height="400px">
+
+#####In-App Browser 
+<img src="screenshots/Browser.png" alt="Browser">
+
+###Phone Resources Used
+* InApp Browser​ : When the user wants to learn more about meditation. They can head to the settings tab, click on the FAQs button to open up the in app browser which navigates them to the web page of a professional meditation teacher who answers some questions about meditation
+
+* Online/Offline Detection:​ The Device detects when a user loses and gains connectivity and notifies them of this fact 
+
+* Battery Resource Detection:​ The Device detects when the users battery is critical and low and notifies them of this fact 
+  
+* Camera Resource:​ The app can activate the devices camera for taking pictures. In the settings tab the user can call on the camera resource to take and set a profile picture. 
+
+* Local Storage:​ A copy of the profile picture taken by the User is stored in offline local storage 
+
+* GeoLocation:​ In the settings tab the user can find the geographic details of their location 
+* Phone Motion(Vibration)​ : When alerts for battery level and connectivity are fired, the device vibrates 
