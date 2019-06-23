@@ -33,7 +33,7 @@ I had to use PhoneGap to build a web application into a Native Android Applicati
 <img src="screenshots/Journal2.png" alt="Journal 2" height="400px">
 
 ##### In-App Browser 
-<img src="screenshots/Browser.png" alt="Browser">
+<img src="screenshots/Browser.png" alt="Browser" height="400px">
 
 ### Phone Resources Used
 * InApp Browser​ : When the user wants to learn more about meditation. They can head to the settings tab, click on the FAQs button to open up the in app browser which navigates them to the web page of a professional meditation teacher who answers some questions about meditation
