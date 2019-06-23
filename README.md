@@ -9,33 +9,33 @@ I had to use PhoneGap to build a web application into a Native Android Applicati
 * Firebase - For Storage and User Authentication
 * PhoneGap and Cordova - To convert web app into Native Android App and to access hardware functionalities of Android phone
 
-##App Architecture
+## App Architecture
 
 <img src="screenshots/Copy of NLU Interpreter_ Responsible for understanding user input by determining intent and extracting entities (2).png" alt="Architecture">
 
 
-##Design Walkthrough
-#####Login Page
+## Design Walkthrough
+##### Login Page
 <img src="screenshots/Login.png" alt="Login" height="400px">
 
-#####Settings Page
+##### Settings Page
 <img src="screenshots/Settings.png" alt="Settings" height="400px">
 
-#####Video Meditations Page
+##### Video Meditations Page
 <img src="screenshots/Video1.png" alt="Video Meditation 1" height="400px">
 <img src="screenshots/Video2.png" alt="Video Meditation 2" height="400px">
 
-#####Audio Meditations Page
+##### Audio Meditations Page
 <img src="screenshots/Audio.png" alt="Audio Meditation" height="400px">
 
-#####Journal Entry
+##### Journal Entry
 <img src="screenshots/Journal1.png" alt="Journal 1" height="400px">
 <img src="screenshots/Journal2.png" alt="Journal 2" height="400px">
 
-#####In-App Browser 
+##### In-App Browser 
 <img src="screenshots/Browser.png" alt="Browser">
 
-###Phone Resources Used
+### Phone Resources Used
 * InApp Browser​ : When the user wants to learn more about meditation. They can head to the settings tab, click on the FAQs button to open up the in app browser which navigates them to the web page of a professional meditation teacher who answers some questions about meditation
 
 * Online/Offline Detection:​ The Device detects when a user loses and gains connectivity and notifies them of this fact 
