@@ -7,63 +7,43 @@ function onDeviceReady(){
 $('#usernameButton').hide();
 $('#profileComplete').hide();
 $('#share_with_contact').click(pickContact);
-$("#cameraButton").click(takePicture);
+$("#setProPic").click(takePicture);
 $('#share_with_media').click(buttonShare);
 $('#geolocation').click(getposition);
 $('#weather').click(getWeatherLocation);
 $('#FAQS').click(showFAQ);
 $('#showPicture').click(showPicture);
+$("#signUpButton").click(signUp);
+$('#usernameButton').click(setUsername);
 $("#loginButton").click(validateLogin);
-$('#addEntry').click(postJournal);
-$('#journal_info').text(localStorage.getItem('title'));
+$("#googleButton").click(signIn);
+$("#signOut").click(signOut);
+//$("#register").click();
+
+firebase.auth().onAuthStateChanged(function(user){
+    if(user){
+    console.log(
+      "name "+ user.displayName +"\n" + "email: " + user.email +"\n" + "photoURL: " + user.photoURL +"\n" + "emailVerified: " + user.emailVerified +"\n" + "ID: " + user.uid +"\n" + "Provider Data: " + user.providerData
+    );
+    $('.entries').empty();
+    $('#settingsUsername').text(user.displayName);
+    db.collection("entries").where("userid", "==", user.uid).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            //$(".entries").append('<img src='+doc.data().picture+'/>');
+            $(".entries").append('<h2>'+doc.data().title+'</h2>');
+            $(".entries").append(doc.data().content + '<br><small>Posted&nbsp'+doc.data().date+'</small><hr>');
+        });
+    })
+  }else{
+    window.location.href = '#login';
+    console.log("Signed Out second");
+  }
+});
 }
 
 function showFAQ(){
   url = "https://www.tarabrach.com/faq-for-meditation-2/";
   var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
-}
-
-
-
-function validatePassword(password){
-  //var password = $("#password").val();
-  var passwordError = "";
-  if(password.length == 0){
-    passwordError+="Please enter a password\n";
-  }
-  else if(password.length < 6){
-    passwordError+="Password too short\n";
-  }
-    return passwordError;
-}
-
-function validateEmail(email){
-//  var email = $("#email").val();
-  var emailError = "";
-  if(email.length == 0 || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-    emailError+="Please enter a valid email\n";
-  }
-    return emailError;
-}
-
-function validateLogin(){
-  var loginError = "";
-  var password = $("#password").val();
-  var email = $("#email").val();
-  loginError += validatePassword(password);
-  loginError += validateEmail(email);
-  if(loginError != ""){
-    console.log(loginError);
-    navigator.notification.alert(loginError, function(){}, "Invalid Login Details");
-  }else{
-    firebase.auth().signInWithEmailAndPassword(email,password).then(function(){window.location.href = '#settings'}).catch(function(error){
-      alert("You dont exist");
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // console.log(errorCode);
-      // console.log(errorMessage);
-    });
-  }
 }
 
 /*function shareSMS(){
@@ -126,6 +106,7 @@ function onBatteryCritical(status){
     navigator.vibrate(1000);
 }
 
+>>>>>>> before_firebase
 function pickContact(){
   navigator.contacts.pickContact(function (contact) {
       // alert(JSON.stringify(contact.phoneNumbers[0].value));
@@ -163,8 +144,9 @@ function showPicture(){
 }
 
 function onCameraSuccess(imageURI){
-  $('#imageAttachments').attr('src',imageURI);
-  console.log($('#imageAttachments').attr('src'));
+  $('#settingImage').attr('src',imageURI);
+  console.log($('#settingImage').attr('src'));
+>>>>>>> before_firebase
   localStorage.setItem("key", imageURI);
 }
 

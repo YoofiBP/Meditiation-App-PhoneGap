@@ -6,13 +6,49 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="splash.css">
-  <script type="text/javascript" src="phonegap.js"></script>
-
   <title>Splash Screen</title>
-  <script>
 
-  </script>
 </head>
+<body>
+<div data-role="page" id="login" data-theme="a">
+
+    <div data-role="header">
+      <h1>Login to Calm Mind</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+      <div class="content loginform ui-field-contain">
+        <input type="text" id="email" name="email" value="" placeholder="Email">
+        <input type="password" id="password" name="password" value="" placeholder="Password" /> <!-- /content -->
+        <input type="submit" name="submit" value="Log In" id="loginButton">
+        <a href="#register" data-direction="reverse"><small>Sign Up for an Account!</small></a>
+        <p id="loginErrors"></p>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="register">
+
+    <div data-role="header" data-theme="b">
+      <h1>Register for Account</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+      <div class="content loginform ui-field-contain">
+        <form class="" action="index.html" method="post">
+          <input type="email" id="sign_email" name="sign_email" value="" placeholder="Email">
+          <input type="password" id="sign_password" name="sign_password" value="" placeholder="Password" />
+          <input type="password" id="confirm_password" name="confirm_password" value="" placeholder="Confirm Password" />
+         <!-- <input type="submit" name="submit" id="signUpButton" value="Sign Up"> -->
+         <button type="button" name="submit" id="signUpButton">Sign Up</button>
+          <input type="text" id="username" name="username" value="" placeholder="What's your name">
+          <button type="button" name="submit" id="usernameButton">Next</button>
+        </form>
+        <a href="#login" data-direction="reverse"><small>Have an Account? Sign In!</small></a><br>
+      </div>
+    </div>
+  </div>
+
 
     <div data-role="page" id="audios" data-theme="a">
 
@@ -107,12 +143,7 @@
       <div class="content loginform ui-field-contain">
         <input id="journal_author" type="text" name="" value="" placeholder="Author">
         <textarea id="journal_post" name="journal_post" rows="30" cols="80"></textarea>
-        <img id="imageAttachments" />
-        <p>
-          Image Attachments
-        </p>
         <button type="button" id="add_entry">Add Post</button>
-        <button type="button" id="cameraButton">Open Camera</button>
         <a href="index.html/#journal"><button data-role="button" type="button" name="button">Back</button></a>
       </div>
     </div>
@@ -144,6 +175,9 @@
         <a href="#about"><button type="button" name="button">About Calm Mind</button></a>
         <button type="button" id="FAQS">FAQs</button>
         <button id="geolocation" type="button">Where am I right now</button>
+
+        <button id="setProPic" type="button">Set Profile Picture</button>
+        <button id="signOut" type="button">Sign Out</button>
       </div>
     </div>
 
@@ -171,33 +205,28 @@
       <div class="content loginform ui-field-contain about">
         <h1>About Calm Mind</h1>
         <p>
-          Meditation is a very useful part of everyday life
+          Meditation is a very useful part of everyday life.
+          Meditation isn’t about becoming a different person, a new person, or even a better person. It’s about training in awareness and getting a healthy sense of perspective. You’re not trying to turn off your thoughts or feelings. You’re learning to observe them without judgment. And eventually, you may start to better understand them as well.
         </p>
         <a href="#settings"><button>Back to Settings</button></a>
       </div>
     </div>
   </div>
 
+
 <body>
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-  <script>
-  var config = {
-    apiKey: "AIzaSyAlEYGuyWL-nZG8k7AwG9tcZ7SNnFDcokk",
-    authDomain: "calmmind-c225f.firebaseapp.com",
-    databaseURL: "https://calmmind-c225f.firebaseio.com",
-    projectId: "calmmind-c225f",
-    storageBucket: "calmmind-c225f.appspot.com",
-    messagingSenderId: "690720280396"
-  };
-  firebase.initializeApp(config);
-  </script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script src="jquery-1.11.1.js"></script>
-    <script src="jquery.mobile-1.4.5.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+  <script src="../www/js/firebaseCredentials.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="jquery-1.11.1.js"></script>
+  <script src="jquery.mobile-1.4.5.js"></script>
+  <script type="text/javascript" src="js/userhandling.js"></script>
+  <script type="text/javascript" src="js/databasehandling.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
